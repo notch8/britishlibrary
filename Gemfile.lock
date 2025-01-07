@@ -41,19 +41,18 @@ GIT
 
 GIT
   remote: https://github.com/samvera/bulkrax
-  revision: 97abce11dce209dc325acb0f87e81753ffd65317
-  tag: v8.0.0
+  revision: 8c37b0d062ad362075e1912e3192da681e19713a
+  branch: 5.3.1-british_library
   specs:
-    bulkrax (8.0.0)
-      bagit (~> 0.4.6)
+    bulkrax (5.3.1)
+      bagit (~> 0.4)
       coderay
-      denormalize_fields
+      dry-monads (~> 1.4.0)
       iso8601 (~> 0.9.0)
       kaminari
       language_list (~> 1.2, >= 1.2.1)
       libxml-ruby (~> 3.2.4)
       loofah (>= 2.2.3)
-      marcel
       oai (>= 0.4, < 2.x)
       rack (>= 2.0.6)
       rails (>= 5.1.6)
@@ -258,7 +257,7 @@ GEM
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
       execjs (~> 2.0)
-    bagit (0.4.6)
+    bagit (0.6.0)
       docopt (~> 0.5.0)
       validatable (~> 1.6)
     bcp47 (0.3.3)
@@ -399,8 +398,6 @@ GEM
       database_cleaner-core (~> 2.0.0)
     database_cleaner-core (2.0.1)
     declarative (0.0.20)
-    denormalize_fields (1.3.0)
-      activerecord (>= 4.1.14, < 8.0.0)
     deprecation (1.1.0)
       activesupport
     devise (4.8.0)

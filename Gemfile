@@ -100,10 +100,11 @@ group :development do
   # gem 'xray-rails' # when using this gem, know that sidekiq will not work
 end
 
-# Bulkrax :: Upgrading passed this point might cause issues, for now we've made a
+# Bulkrax :: Upgrading past this point might cause issues, for now we've made a
 #            branch off v5.3.1 that includes `DownloadCloudFileJob` work.
-#gem 'bulkrax', git: 'https://github.com/samvera/bulkrax', branch: '5.3.1-british_library'
-gem 'bulkrax', git: 'https://github.com/samvera/bulkrax', tag: 'v8.0.0'
+gem 'bulkrax', git: 'https://github.com/samvera/bulkrax', branch: '5.3.1-british_library'
+# DownloadCloudFileJob included in Bulkrax >= 8.0.0
+#gem 'bulkrax', git: 'https://github.com/samvera/bulkrax', tag: 'v8.0.0'
 
 
 gem 'blacklight', '~> 6.7'
