@@ -1,7 +1,7 @@
 {
   "name": "britishlibrary",
   "private": true,
-  "repository": "https://github.com/scientist-softserv/britishlibrary.git",
+  "repository": "https://github.com/notch8/britishlibrary.git",
   "dependencies": {
     "universalviewer": "^3.0.36"
   },

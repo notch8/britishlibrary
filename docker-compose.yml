@@ -7,7 +7,7 @@ x-app: &app
     args:
       - HYKU_BULKRAX_ENABLED=true
   # command: sh -l -c "bundle && bundle exec puma -v -b tcp://0.0.0.0:3000"
-  image: ghcr.io/scientist-softserv/britishlibrary:${TAG:-latest}
+  image: ghcr.io/notch8/britishlibrary:${TAG:-latest}
   env_file:
     - .env
   # NOTE: all common env variables moved to .env
@@ -121,7 +121,7 @@ services:
   # Used exclusively for building and caching the base image to reduce build times
   base:
     <<: *app
-    image: ghcr.io/scientist-softserv/britishlibrary/base:${TAG:-latest}
+    image: ghcr.io/notch8/britishlibrary/base:${TAG:-latest}
     build:
       context: .
       target: hyku-base
@@ -196,9 +196,9 @@ services:
       args:
         - HYKU_BULKRAX_ENABLED=true
       cache_from:
-        - ghcr.io/scientist-softserv/britishlibrary:${TAG:-latest}
-        - ghcr.io/scientist-softserv/britishlibrary/worker:${TAG:-latest}
-    image: ghcr.io/scientist-softserv/britishlibrary/worker:${TAG:-latest}
+        - ghcr.io/notch8/britishlibrary:${TAG:-latest}
+        - ghcr.io/notch8/britishlibrary/worker:${TAG:-latest}
+    image: ghcr.io/notch8/britishlibrary/worker:${TAG:-latest}
     depends_on:
       check_volumes:
         condition: service_completed_successfully
