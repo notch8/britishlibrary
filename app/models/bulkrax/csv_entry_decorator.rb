@@ -10,7 +10,7 @@ module Bulkrax
     #       exported CSV, we need to account for the `creator` attribute discrepencies.  Which, at
     #       this point may be irreconcilable unless we have an override parser for FileSets.
     #
-    # @see https://github.com/scientist-softserv/britishlibrary/issues/289
+    # @see https://github.com/notch8/britishlibrary/issues/289
     def fetch_field_mapping
       field_mappings = super
 

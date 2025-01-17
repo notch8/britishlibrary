@@ -170,7 +170,7 @@ Hyrax::Identifier::Dispatcher.class_eval do
 end
 
 # Forces DataCiteRegistrar to initializew a new client everytime. 
-# A fix for #245 https://github.com/scientist-softserv/britishlibrary/issues/245
+# A fix for #245 https://github.com/notch8/britishlibrary/issues/245
 # Prevents leaching of datacite config between tenants when minting DOIs by ensuring
 # that the datacite credentials always come from the account that kicked the job off
 Hyrax::DOI::DataCiteRegistrar.class_eval do
