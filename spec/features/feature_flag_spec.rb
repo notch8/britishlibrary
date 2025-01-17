@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 # TODO: fix flaky spec
-# ref: https://github.com/scientist-softserv/britishlibrary/issues/419
+# ref: https://github.com/notch8/britishlibrary/issues/419
 RSpec.describe 'Admin can select feature flags', type: :feature, js: true, clean: true do
   let(:admin) { FactoryBot.create(:admin, email: 'admin@example.com', display_name: 'Adam Admin') }
   let(:account) { FactoryBot.create(:account, cname: 'example.com') }

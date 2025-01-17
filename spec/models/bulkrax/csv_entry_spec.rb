@@ -72,7 +72,7 @@ RSpec.describe Bulkrax::CsvEntry do
       end
     end
 
-    context 'with production metadata (see https://github.com/scientist-softserv/britishlibrary/issues/275)' do
+    context 'with production metadata (see https://github.com/notch8/britishlibrary/issues/275)' do
       let(:import_file_path) { Rails.root.join("spec", "fixtures", "csv", "BlackpoolGazetteHerald.csv") }
       let(:identifier) { '123' }
       let(:data) do
