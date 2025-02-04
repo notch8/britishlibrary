@@ -21,8 +21,7 @@ jobs:
     secrets: inherit
     with:
       platforms: "linux/amd64"
-      target: hyku-web
-      worker: true
+      webTarget: hyku-web
       workerTarget: hyku-worker
   test:
     needs: build
