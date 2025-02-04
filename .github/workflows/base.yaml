@@ -1,18 +1,18 @@
 name: "Build Base"
+run-name: Build Base of ${{ github.ref_name }} by @${{ github.actor }}
 on:
   workflow_dispatch:
     inputs:
       debug_enabled:
         type: boolean
-        description: 'Run the build with tmate debugging enabled (https://github.com/marketplace/actions/debugging-with-tmate)'
+        description: "Run the build with tmate debugging enabled (https://github.com/marketplace/actions/debugging-with-tmate)"
         required: false
         default: false
 
 jobs:
   build:
-    uses: notch8/actions/.github/workflows/build.yaml@v0.0.22
+    uses: notch8/actions/.github/workflows/build.yaml@v0.0.12
     secrets: inherit
     with:
-      platforms: "linux/amd64"
+      platforms: "linux/amd64,linux/arm64"
       target: hyku-base
-      
