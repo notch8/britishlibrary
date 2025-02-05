@@ -1,5 +1,5 @@
-name: "Build Lint Test"
-run-name: Build Lint & Test of ${{ github.ref_name }} by @${{ github.actor }}
+name: "Build Test Lint"
+run-name: Build Test Lint of ${{ github.ref_name }} by @${{ github.actor }}
 on:
   push:
     branches:
@@ -17,16 +17,18 @@ on:
 
 jobs:
   build:
-    uses: notch8/actions/.github/workflows/build.yaml@v0.0.15
+    uses: notch8/actions/.github/workflows/build.yaml@v0.0.21
     secrets: inherit
     with:
       platforms: "linux/amd64"
-      target: hyku-web
-      worker: true
+      webTarget: hyku-base
+      solrTarget: hyku-solr
       workerTarget: hyku-worker
   test:
     needs: build
-    uses: notch8/actions/.github/workflows/test.yaml@v0.0.15
+    uses: notch8/actions/.github/workflows/test.yaml@v0.0.21
   lint:
     needs: build
-    uses: notch8/actions/.github/workflows/lint.yaml@v0.0.15
+    uses: notch8/actions/.github/workflows/lint.yaml@v0.0.21
+    with:
+      rubocop_cmd: 'bundle exec rubocop --parallel --format progress'
