@@ -17,7 +17,7 @@ on:
 
 jobs:
   build:
-    uses: notch8/actions/.github/workflows/build.yaml@v0.0.22
+    uses: notch8/actions/.github/workflows/build.yaml@british-library
     secrets: inherit
     with:
       platforms: "linux/amd64"
@@ -26,9 +26,9 @@ jobs:
       workerTarget: hyku-worker
   test:
     needs: build
-    uses: notch8/actions/.github/workflows/test.yaml@v0.0.22
+    uses: notch8/actions/.github/workflows/test.yaml@british-library
   lint:
     needs: build
-    uses: notch8/actions/.github/workflows/lint.yaml@v0.0.22
+    uses: notch8/actions/.github/workflows/lint.yaml@british-library
     with:
       rubocop_cmd: 'bundle exec rubocop --parallel --format progress'
