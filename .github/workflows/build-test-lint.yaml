@@ -1,4 +1,4 @@
-name: "Build Test Lint"
+name: "Build Lint Test"
 run-name: Build Test Lint of ${{ github.ref_name }} by @${{ github.actor }}
 on:
   push:
@@ -21,14 +21,18 @@ jobs:
     secrets: inherit
     with:
       platforms: "linux/amd64"
-      webTarget: hyku-base
-      solrTarget: hyku-solr
+      webTarget: hyku-web
       workerTarget: hyku-worker
   test:
     needs: build
     uses: notch8/actions/.github/workflows/test.yaml@v0.0.21
+    with:
+      confdir: "/app/samvera/hyrax-webapp/solr/config"
+      webTarget: hyku-web
+      workerTarget: hyku-worker
   lint:
     needs: build
     uses: notch8/actions/.github/workflows/lint.yaml@v0.0.21
     with:
-      rubocop_cmd: 'bundle exec rubocop --parallel --format progress'
+      webTarget: hyku-web
+      workerTarget: hyku-worker
