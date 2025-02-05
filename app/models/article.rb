@@ -22,7 +22,7 @@ class Article < ActiveFedora::Base
   validates :title, presence: { message: 'Your work must have a title.' }
 
   # Added the property record_level_file_version_declaration
-  # see https://github.com/scientist-softserv/britishlibrary/issues/330
+  # see https://github.com/notch8/britishlibrary/issues/330
   property :record_level_file_version_declaration, predicate: ::RDF::Vocab::BF2.UsageAndAccessPolicy, multiple: false do |index|
     index.as :stored_searchable
   end
