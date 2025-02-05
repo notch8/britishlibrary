@@ -1,11 +1,11 @@
 name: "Deploy"
-run-name: Deploy (${{ github.ref_name }} -> ${{ inputs.environment }}) by @${{ github.actor }}
+run-name: Deploy (${{ github.ref_name }} -> ${{ inputs.environment }}) by @${{ github.actor }} with SHA ${{ github.sha}}
 on:
   workflow_dispatch:
     inputs:
       environment:
         description: 'Deploy to Environment'
-        required: true
+        require: true
         default: 'staging'
         type: choice
         options:
@@ -19,6 +19,9 @@ on:
         default: false
 
 jobs:
-  deploy:
+  call-workflow:
     uses: notch8/actions/.github/workflows/deploy.yaml@british-library
+    with:
+      k8s-release-name: hyku-${{ inputs.environment }}
+      k8s-namespace: ${{ inputs.environment }}
     secrets: inherit
