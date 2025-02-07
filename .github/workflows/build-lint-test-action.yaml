@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Start Solr Container
-        run: docker-compose up -d solr
+        run: docker compose up -d solr
       - name: Check Solr Container Status
         run: docker ps -a
       - name: Fetch Solr Logs
