@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    uses: notch8/actions/.github/workflows/build.yaml@v0.0.6-rename-ss-to-n8
+    uses: notch8/actions/.github/workflows/build.yaml@v0.0.6-docker-cmd-update
     secrets: inherit
     with:
       platforms: "linux/amd64"
