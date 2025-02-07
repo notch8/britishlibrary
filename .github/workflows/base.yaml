@@ -10,8 +10,9 @@ on:
 
 jobs:
   build:
-    uses: notch8/actions/.github/workflows/build.yaml@v0.0.13-rename-ss-to-n8
+    uses: notch8/actions/.github/workflows/build.yaml@v0.0.6
     secrets: inherit
     with:
-      baseTarget: hyku-base
       platforms: "linux/amd64"
+      target: hyku-base
+      

@@ -1,5 +1,5 @@
 name: "Build Lint Test"
-run-name: Build Test Lint of ${{ github.ref_name }} by @${{ github.actor }}
+run-name: Build Lint & Test of ${{ github.ref_name }} by @${{ github.actor }}
 on:
   push:
     branches:
@@ -21,18 +21,12 @@ jobs:
     secrets: inherit
     with:
       platforms: "linux/amd64"
-      webTarget: hyku-web
+      target: hyku-web
+      worker: true
       workerTarget: hyku-worker
   test:
     needs: build
     uses: notch8/actions/.github/workflows/test.yaml@v0.0.13-rename-ss-to-n8
-    with:
-      confdir: "/app/samvera/hyrax-webapp/solr/config"
-      webTarget: hyku-web
-      workerTarget: hyku-worker
   lint:
     needs: build
     uses: notch8/actions/.github/workflows/lint.yaml@v0.0.13-rename-ss-to-n8
-    with:
-      webTarget: hyku-web
-      workerTarget: hyku-worker

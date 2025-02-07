@@ -5,7 +5,7 @@ on:
     inputs:
       environment:
         description: 'Deploy to Environment'
-        required: true
+        require: true
         default: 'staging'
         type: choice
         options:
@@ -19,6 +19,9 @@ on:
         default: false
 
 jobs:
-  deploy:
-    uses: notch8/actions/.github/workflows/deploy.yaml@v0.0.13-rename-ss-to-n8
+  call-workflow:
+    uses: notch8/actions/.github/workflows/deploy.yaml@v0.0.6
+    with:
+      k8s-release-name: hyku-${{ inputs.environment }}
+      k8s-namespace: ${{ inputs.environment }}
     secrets: inherit
