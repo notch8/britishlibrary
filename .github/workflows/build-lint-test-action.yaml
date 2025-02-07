@@ -30,3 +30,12 @@ jobs:
   lint:
     needs: build
     uses: notch8/actions/.github/workflows/lint.yaml@v0.0.13-docker-cmd-update
+  debug-solr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Start Solr Container
+        run: docker-compose up -d solr
+      - name: Check Solr Container Status
+        run: docker ps -a
+      - name: Fetch Solr Logs
+        run: docker logs britishlibrary-solr-1
