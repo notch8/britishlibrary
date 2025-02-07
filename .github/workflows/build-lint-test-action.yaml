@@ -17,7 +17,7 @@ on:
 
 jobs:
   build:
-    uses: notch8/actions/.github/workflows/build.yaml@v0.0.21
+    uses: notch8/actions/.github/workflows/build.yaml@v0.0.13-rename-ss-to-n8
     secrets: inherit
     with:
       platforms: "linux/amd64"
@@ -25,14 +25,14 @@ jobs:
       workerTarget: hyku-worker
   test:
     needs: build
-    uses: notch8/actions/.github/workflows/test.yaml@v0.0.21
+    uses: notch8/actions/.github/workflows/test.yaml@v0.0.13-rename-ss-to-n8
     with:
       confdir: "/app/samvera/hyrax-webapp/solr/config"
       webTarget: hyku-web
       workerTarget: hyku-worker
   lint:
     needs: build
-    uses: notch8/actions/.github/workflows/lint.yaml@v0.0.21
+    uses: notch8/actions/.github/workflows/lint.yaml@v0.0.13-rename-ss-to-n8
     with:
       webTarget: hyku-web
       workerTarget: hyku-worker
