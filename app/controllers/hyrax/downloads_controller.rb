@@ -47,7 +47,7 @@ module Hyrax
                       else
                         Aws::S3::Object.new(ENV['AWS_BUCKET'], file.digest.first.to_s.gsub('urn:sha1:', ''))
                       end
-          if s3_object.exists?
+    #      if s3_object.exists?
             STDERR.puts "##################################"
             STDERR.puts "Redirecting to S3 using the filename #{file.original_name}"
             STDERR.puts "File object: #{file}"
@@ -57,7 +57,7 @@ module Hyrax
               response_content_disposition: "attachment\; filename=#{file.original_name}"
             )
             return
-          end
+ #         end
         end
         # from here on this is effectively `super` if this was a decorator
         # will fall back to streaming object via fedora
