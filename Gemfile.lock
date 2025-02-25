@@ -118,7 +118,7 @@ GIT
       tinymce-rails (~> 4.1)
 
 GIT
-  remote: https://github.com/scientist-softserv/hyrax-v2_graph_indexer.git
+  remote: https://github.com/notch8/hyrax-v2_graph_indexer.git
   revision: 53b0a2d28868af25d306bc361634439c008892ac
   ref: 53b0a2d28868af25d306bc361634439c008892ac
   specs:
@@ -127,7 +127,7 @@ GIT
       railties
 
 GIT
-  remote: https://github.com/scientist-softserv/iiif_print.git
+  remote: https://github.com/notch8/iiif_print.git
   revision: 8fdf56e151b5adb7e6aab1cd29d39b74554ed48a
   specs:
     iiif_print (1.0.0)

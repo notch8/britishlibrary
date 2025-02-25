@@ -17,7 +17,7 @@ on:
 
 jobs:
   build:
-    uses: scientist-softserv/actions/.github/workflows/build.yaml@v0.0.13
+    uses: notch8/actions/.github/workflows/build.yaml@v0.0.13-docker-cmd-update
     secrets: inherit
     with:
       platforms: "linux/amd64"
@@ -26,7 +26,7 @@ jobs:
       workerTarget: hyku-worker
   test:
     needs: build
-    uses: scientist-softserv/actions/.github/workflows/test.yaml@v0.0.13
+    uses: notch8/actions/.github/workflows/test.yaml@v0.0.13-docker-cmd-update
   lint:
     needs: build
-    uses: scientist-softserv/actions/.github/workflows/lint.yaml@v0.0.13
+    uses: notch8/actions/.github/workflows/lint.yaml@v0.0.13-docker-cmd-update
