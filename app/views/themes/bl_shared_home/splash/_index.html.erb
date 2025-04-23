@@ -13,6 +13,7 @@
           Welcome to our shared repository where you’ll find research produced by our partner organisations: 
           <ul>
             <li>British Library</li>
+            <li>Historic Royal Palaces</li>
             <li>MOLA (Museum of London Archaeology)</li>
             <li>National Library of Scotland</li>
             <li>National Museums Scotland</li>
@@ -73,6 +74,11 @@
         <div class="col-xs-6 col-sm-4 text-center">
           <%= link_to "//#{host_for('tate')}" do %>
             <%= image_tag("splash-logos/Tate_Logo.png", class: "tenant-logo", alt: "Tate") %>
+          <% end %>
+        </div>
+        <div class="col-xs-6 col-sm-4 text-center col-xs-push-3 col-sm-push-4">
+          <%= link_to "//#{host_for('historicroyalpalaces')}" do %>
+            <%= image_tag("splash-logos/hrp_logo.jpg", class: "tenant-logo", alt: "Historic Royal Palaces") %>
           <% end %>
         </div>
       </div>
