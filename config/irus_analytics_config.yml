@@ -69,3 +69,5 @@ production:
     source_repository: nls.iro.bl.uk
   tate.iro.bl.uk:
     source_repository: tate.iro.bl.uk
+  historicroyalpalaces.iro.bl.uk:
+    source_repository: historicroyalpalaces.iro.bl.uk
