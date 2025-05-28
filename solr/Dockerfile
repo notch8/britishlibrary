@@ -1,4 +1,4 @@
-FROM solr:8.3
+FROM solr:8.3 AS hyku-solr
 ENV SOLR_USER="solr" \
     SOLR_GROUP="solr"
 USER root

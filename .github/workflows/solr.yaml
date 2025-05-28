@@ -1,4 +1,4 @@
-name: "Build Base"
+name: "Build Solr Base"
 on:
   workflow_dispatch:
     inputs:
@@ -14,4 +14,4 @@ jobs:
     secrets: inherit
     with:
       platforms: "linux/amd64"
-      target: hyku-base
+      target: hyku-solr
