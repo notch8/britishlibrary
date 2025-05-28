@@ -55,7 +55,7 @@ services:
       timeout: "8s"
 
   solr:
-    image: hyku/solr:8
+    image: ghcr.io/notch8/britishlibrary/solr:${TAG:-latest}
     build:
       context: ./solr
       target: hyku-solr
