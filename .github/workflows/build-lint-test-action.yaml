@@ -1,5 +1,5 @@
-name: "Build Lint Test"
-run-name: Build Lint & Test of ${{ github.ref_name }} by @${{ github.actor }}
+name: "Build Test Lint"
+run-name: Build Test Lint of ${{ github.ref_name }} by @${{ github.actor }}
 on:
   push:
     branches:
@@ -14,23 +14,25 @@ on:
         description: 'Run the build with tmate debugging enabled (https://github.com/marketplace/actions/debugging-with-tmate)'
         required: false
         default: false
-
+# We are using version 14 since this project has not been knap-sackerized yet
 jobs:
   build:
     uses: notch8/actions/.github/workflows/build.yaml@v0.0.15
     secrets: inherit
     with:
       platforms: "linux/amd64"
-      target: hyku-web
-      worker: true
+      webTarget: hyku-web
       workerTarget: hyku-worker
+      solrTarget: hyku-solr
   test:
     needs: build
     uses: notch8/actions/.github/workflows/test.yaml@v0.0.15
     with:
-      platforms: "linux/amd64"
+      webTarget: hyku-web
+      workerTarget: hyku-worker
   lint:
     needs: build
     uses: notch8/actions/.github/workflows/lint.yaml@v0.0.15
     with:
-      platforms: "linux/amd64"
+      webTarget: hyku-web
+      workerTarget: hyku-worker
