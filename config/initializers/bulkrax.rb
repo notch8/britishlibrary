@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 if ENV.fetch('HYKU_BULKRAX_ENABLED', false)
+  Bulkrax.object_factory = Bulkrax::ObjectFactory
+
   # rubocop:disable Metrics/BlockLength
   Bulkrax.setup do |config|
     # Add local parsers
