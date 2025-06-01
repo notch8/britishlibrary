@@ -284,6 +284,14 @@ nginx:
     set_real_ip_from 2405:8100::/32;
     set_real_ip_from 2a06:98c0::/29;
     set_real_ip_from 2c0f:f248::/32;
+    # Added by RM Adding _internal_ node IPs to 
+    # see if this helps with getting the client 
+    # IP to pods (bit of a punt)
+    set_real_ip_from 192.168.92.139/32;
+    set_real_ip_from 192.168.177.103/32;
+    set_real_ip_from 192.168.191.120/32;
+    set_real_ip_from 192.168.192.119/32;
+    set_real_ip_from 192.168.223.177/32;
 
     real_ip_header X-Forwarded-For;
     real_ip_recursive on;
