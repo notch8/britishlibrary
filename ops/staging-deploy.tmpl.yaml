@@ -43,6 +43,9 @@ extraVolumeMounts: &volMounts
   - name: uploads
     mountPath: /app/samvera/hyrax-webapp/public/branding
     subPath: public-branding
+  - name: uploads
+    mountPath: /app/samvera/hyrax-webapp/tmp/uploads
+    subPath: uploads
 
 
 ingress:
