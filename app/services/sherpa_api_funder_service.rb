@@ -85,7 +85,7 @@ class SherpaApiFunderService
   private_class_method :clean_doi
 
   def self.find_doi_from_ror(ror:)
-    url = "https://api.ror.org/organizations?query=" + ror
+    url = "https://api.ror.org/v1/organizations?query=" + ror
     ror_response = fetch_record_from_url(url)
     response_hash = ror_response.parsed_response
     # rubocop:disable Rails/Blank

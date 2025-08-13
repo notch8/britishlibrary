@@ -211,6 +211,16 @@ Qa::Authorities::Local.register_subauthority('languages', 'Qa::Authorities::Loca
 Qa::Authorities::Local.register_subauthority('genres', 'Qa::Authorities::Local::TableBasedAuthority')
 
 Qa::Authorities::Crossref::GenericAuthority.label = lambda { |item| [item['name'], item['location']].compact.join(', ') }
+
+# Override QA 5.7.0 lib/qa/authorities/crossref/generic_authority.rb
+# Make hard-coded URL :/ use https to avoid redirects
+Qa::Authorities::Crossref::GenericAuthority.class_eval do
+    def build_query_url(q)
+      query = ERB::Util.url_encode(untaint(q))
+      "https://api.crossref.org/#{subauthority}?query=#{query}"
+    end
+end
+
 # set bulkrax default work type to first curation_concern if it isn't already set
 if ENV.fetch('HYKU_BULKRAX_ENABLED', false) && Bulkrax.default_work_type.blank?
   Bulkrax.default_work_type = Hyrax.config.curation_concerns.first.to_s

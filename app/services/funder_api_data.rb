@@ -2,7 +2,7 @@ class FunderApiData
   attr_accessor :response
 
   def initialize(funder_id)
-    url = "https://api.ror.org/organizations?query=" + funder_id
+    url = "https://api.ror.org/v1/organizations?query=" + funder_id
     @response = fetch_record_from_url(url)
   end
 
