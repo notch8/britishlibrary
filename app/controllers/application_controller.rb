@@ -54,6 +54,7 @@ class ApplicationController < ActionController::Base
     def authenticate_if_needed
       # Disable this extra authentication in test mode
       return true if Rails.env.test?
+      return true # any hint of basic auth will stop BL staff from accessing site so instead we open all the "private" demo sites
       if (is_hidden || is_staging) && !is_api_or_pdf
         authenticate_or_request_with_http_basic do |username, password|
           username == ENV.fetch("HYKU_DEMO_USER", "bl_demo_user") && password == ENV.fetch("HYKU_DEMO_PASSWORD", "resu_omed_lb")
