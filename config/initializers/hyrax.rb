@@ -234,30 +234,25 @@ Hydra::Derivatives::Processors::Video::Processor.config.video_bitrate = '1500k'
 # Monkey patch Bulkrax so controlled URI validation allows http://thing.com/a/file/with/an/extension.html 
 # not just http://thing.com/thing(|/)
 # Remove all the trailing slashes from authorities and remove from input if present rather than the inverse
-module Bulkrax
-  # Import Behavior for Entry classes
-  module ImportBehavior # rubocop:disable Metrics/ModuleLength
-    #extend ActiveSupport::Concern
+Bulkrax::ImportBehavior.module_eval do 
 
-    # @param value [String] value to validate
-    # @param field [String] name of the controlled property
-    # @return [String, nil] validated URI value or nil
-    def validate_value(value, field)
-      if value.match?(::URI::DEFAULT_PARSER.make_regexp)
-        value = value.strip.chomp
-        # add trailing forward slash unless one is already present or there's an obvious file extension
-        value << '/' unless value.match?(%r{/$}) || value.match?(%r{/[^./]+\.[^./]+$})
-      end
-
-      valid = if active_id_for_authority?(value, field)
-                true
-              else
-                value.include?('https') ? value.sub!('https', 'http') : value.sub!('http', 'https')
-                active_id_for_authority?(value, field)
-              end
-
-      valid ? value : nil
+  # @param value [String] value to validate
+  # @param field [String] name of the controlled property
+  # @return [String, nil] validated URI value or nil
+  def validate_value(value, field)
+    if value.match?(::URI::DEFAULT_PARSER.make_regexp)
+      value = value.strip.chomp
+      # add trailing forward slash unless one is already present or there's an obvious file extension
+      value << '/' unless value.match?(%r{/$}) || value.match?(%r{/[^./]+\.[^./]+$})
     end
 
+    valid = if active_id_for_authority?(value, field)
+              true
+            else
+              value.include?('https') ? value.sub!('https', 'http') : value.sub!('http', 'https')
+              active_id_for_authority?(value, field)
+            end
+
+    valid ? value : nil
   end
 end
