@@ -64,8 +64,8 @@ ingress:
     - hosts:
         - bl-staging.notch8.cloud
         - "*.bl-staging.notch8.cloud"
-#      secretName: notch8cloudstaging
-      secretName: bl-staging-tls
+      secretName: notch8cloudstaging
+#      secretName: bl-staging-tls
 
 
 extraEnvVars: &envVars
