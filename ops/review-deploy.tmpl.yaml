@@ -146,6 +146,9 @@ fcrepo:
 postgresql:
   enabled: true
 redis:
+  image:
+    repository: bitnamilegacy/redis
+    tag: 7.0.2-debian-11-r7
   cluster:
     enabled: false
   password: staging

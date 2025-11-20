@@ -168,7 +168,7 @@ resource "helm_release" "fcrepos3-staging" {
   repository = "https://samvera-labs.github.io/fcrepo-charts"
   chart = "fcrepo"
   values = [
-    file("k8s/fcrepos3-staging-values.yaml")
+    file("k8s/fcrepos3-values.yaml")
   ]
 
 }

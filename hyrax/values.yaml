@@ -246,9 +246,9 @@ nginx:
   # The set up below does malicious bot / ip blocking and mounts
   # vaolumes to allow nginx to server assets and other public directory items
   # image:
-  #   registry: registry.gitlab.com
-  #   repository: notch8/scripts/bitnami-nginx
-  #   tag: 1.21.5-debian-10-r4
+  #   registry: ghcr.io
+  #   repository: bitnamilegacy-nginx
+  #   tag: 1.21.6-debian-11-r21
   # extraVolumes:
   #   - name: "uploads"
   #     persistentVolumeClaim:
@@ -377,6 +377,9 @@ nginx:
 
 
 redis:
+  image:
+    repository: bitnamilegacy/redis
+    tag: 6.0.6
   enabled: true
   password: mysecret
 
