@@ -147,6 +147,7 @@ services:
     ## interact with the breakpoints.
     ##
     # command: sh -l -c "bundle && tail -f /dev/null"
+    command: tail -f /dev/null
     depends_on:
       db:
         condition: service_started
