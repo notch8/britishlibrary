@@ -239,3 +239,10 @@ if ENV.fetch('HYKU_BULKRAX_ENABLED', false)
   end
   # rubocop:enable Metrics/BlockLength
 end
+
+# Override bulkrax CSV parse to allow big ol files (for use with metadata only exports)
+Bulkrax::CsvParser.clas_eval do
+    def records_split_count
+      1_000_000
+    end
+end
