@@ -208,7 +208,7 @@ fcrepo:
   postgresql:
     enabled: false
     image:
-      repository: bitnami/postgresql
+      repository: bitnamilegacy/postgresql
       tag: 12.3.0
 
 memcached:
@@ -227,7 +227,7 @@ minio:
 postgresql:
   enabled: true
   image:
-    repository: bitnami/postgresql
+    repository: bitnamilegacy/postgresql
     tag: 12.3.0
   postgresqlUsername: hyrax
   postgresqlPassword: hyrax_pass
@@ -386,7 +386,7 @@ redis:
 solr:
   enabled: true
   image:
-    repository: bitnami/solr
+    repository: bitnamilegacy/solr
     tag: 8.11.1
   authentication:
     enabled: true
