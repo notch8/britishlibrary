@@ -648,7 +648,7 @@ body.public-facing.bl-public-facing {
 
   /* DEFAULT BUTTON STYLES */
   &.hyrax-homepage .btn-default {
-    background-color: transparent;
+    background-color: transparent !important;
     border: 0;
     border-color: transparent;
     color: $darkgrey;
