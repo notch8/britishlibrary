@@ -1,7 +1,7 @@
 <!-- rendered from views/hyrax/base///attribute_rows_custom.html.erb -->
 <% array_of_hash = get_model(presenter.creator_hash, presenter.model, 'creator', 'creator_position') %>
 <% if ['f5dcdc4c-e72e-448a-b72f-d3d9c152a71d','c4123f30-db92-4117-b62c-7c4811c3c052'].include?(presenter.id) %>
-    <%= render "hyrax/base/special_case_for_kew_creators" %>
+    <%= render "hyrax/base/special_case_for_kew_creators", section: section %>
 <% else %>
   <% if (array_of_hash.class == Array && array_of_hash.first.class == Hash)  %>
     <%= render "shared/ubiquity/creator/show_array_hash",  array_of_hash: array_of_hash, section: section %>
