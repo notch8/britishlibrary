@@ -1,8 +1,12 @@
 <!-- rendered from views/hyrax/base///attribute_rows_custom.html.erb -->
 <% array_of_hash = get_model(presenter.creator_hash, presenter.model, 'creator', 'creator_position') %>
-
-<% if (array_of_hash.class == Array && array_of_hash.first.class == Hash)  %>
-  <%= render "shared/ubiquity/creator/show_array_hash",  array_of_hash: array_of_hash, section: section %>
+<p>Presenter ID: <%= presenter.id %></p>
+<% if ['fccd9838-42a9-401f-a518-e76142164193','c4123f30-db92-4117-b62c-7c4811c3c052'].include?(presenter.id) %>
+    <%= render "hyrax/base/special_case_for_kew_creators" %>
 <% else %>
+  <% if (array_of_hash.class == Array && array_of_hash.first.class == Hash)  %>
+    <%= render "shared/ubiquity/creator/show_array_hash",  array_of_hash: array_of_hash, section: section %>
+  <% else %>
 
-<% end %> <%# closes if array_of_hash.class %>
+  <% end %> <%# closes if array_of_hash.class %>
+<% end %>
