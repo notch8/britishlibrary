@@ -1,6 +1,5 @@
 <!-- rendered from views/hyrax/base///attribute_rows_custom.html.erb -->
 <% array_of_hash = get_model(presenter.creator_hash, presenter.model, 'creator', 'creator_position') %>
-<p>Presenter ID: <%= presenter.id %></p>
 <% if ['f5dcdc4c-e72e-448a-b72f-d3d9c152a71d','c4123f30-db92-4117-b62c-7c4811c3c052'].include?(presenter.id) %>
     <%= render "hyrax/base/special_case_for_kew_creators" %>
 <% else %>
